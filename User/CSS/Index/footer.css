@@ -1,0 +1,41 @@
+.footer {
+  height: 220px;
+  background-color: #ffffff;
+}
+
+.footer-main {
+  display: flex;
+}
+.footer-main__col {
+  font-size: 1.4rem;
+  line-height: 30px;
+  width: 25%;
+  height: 200px;
+  padding-top: 10px;
+}
+
+.footer-main__col h3 {
+  font-size: 2.5rem;
+  padding-bottom: 15px;
+}
+.footer-main__col .list {
+  list-style: none;
+}
+
+.footer-main__col a {
+  text-decoration: none;
+  color: #0084cb;
+}
+
+.footer-end {
+  background-color: #f1f1f1;
+  height: 50px;
+}
+.end {
+  padding-top: 10px;
+  font-size: 1.1rem;
+}
+.end a {
+  text-decoration: none;
+  color: #0084cb;
+}

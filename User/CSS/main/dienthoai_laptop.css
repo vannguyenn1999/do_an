@@ -1,0 +1,228 @@
+/* main banner */
+
+.main-banner {
+  display: flex;
+  column-gap: 10px;
+  margin-right: 0px;
+}
+.main-deal-banner1 {
+  height: 200px;
+}
+.main-banner-left {
+  width: 95%;
+  cursor: pointer;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 5px;
+  width: 5px;
+  /* margin: 0 2px; */
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.main-banner-right {
+  width: 45%;
+  cursor: pointer;
+}
+
+/* main trademark */
+.main-trademark {
+  display: flex;
+  column-gap: 10px;
+  margin-left: -10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  /* background-color: gray;     */
+}
+.main-trademark-item {
+  width: 10%;
+}
+
+/* main product */
+.main-deal_product {
+  padding-top: 10px;
+  background-color: #ff6533;
+}
+.main-deal_btn {
+  background-color: #ff6533;
+}
+
+/* main search */
+.main-search {
+  /* height: 30px; */
+  margin: 30px 0px;
+}
+.main-search-header {
+  font-size: 4rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.main-search-p {
+  font-size: 2.7rem;
+  /* font-weight: 100; */
+  margin-bottom: 20px;
+}
+
+.main-search-list {
+  display: flex;
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+.main-search-item {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  margin-right: 20px;
+}
+
+.main-search-item span {
+  margin-left: 5px;
+}
+
+.main-search-item:hover {
+  border-color: black;
+  color: red;
+}
+
+.main-deal_product1 {
+  display: flex;
+  padding-top: 10px;
+  background-color: #f6f6f6;
+  border-radius: 1px;
+}
+.main-deal_product_1 {
+  border: 1px solid #e0e0e0;
+}
+.main-deal_product_1:hover {
+  border: 1px solid black;
+}
+
+.main-deal_btn1 {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6f6;
+}
+.main-deal_btn1 .btn {
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+.main-deal_btn1 .btn:hover {
+  background-color: #288ad6;
+}
+.main-deal_btn1 .btn a:hover {
+  color: #ffffff;
+}
+
+.main-deal_btn1 .btn a {
+  text-decoration: none;
+  color: black;
+  padding: 0 125px;
+}
+
+.main-deal_product-img-laptop {
+  width: 90%;
+  height: 150px;
+  padding-left: 20px;
+}
+.main-deal_product-img-laptop {
+  transition: transform 0.9s;
+}
+.main-deal_product-img-laptop:hover {
+  transform: translateY(-10px);
+}
+
+.gaming {
+  background-color: #25304b;
+}
+.macbook {
+  background-color: #fcdfe1;
+}
+.office {
+  background-color: #7ed6f8;
+}
+.laptop {
+  background-color: #0e367a;
+}
+.graphics {
+  background-color: #6d01b6;
+}

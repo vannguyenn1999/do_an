@@ -1,0 +1,71 @@
+.form_register {
+  margin: 30px 300px;
+  padding: 30px;
+  background-color: rgb(191, 172, 172);
+  /* position: relative; */
+  border-radius: 10px;
+}
+  
+
+
+.err-txt {
+  font-size: 1.5rem;
+  color: rgb(255, 0, 0);
+  margin-top: 10px;
+}
+
+.form_header {
+  display: flex;
+  background-color: rgb(191, 172, 172);
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.p_header {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.a_header a {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+.field {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+ 
+  margin-top: 10px;
+}
+
+.field input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  line-height: 30px;
+  /* position: relative; */
+}
+
+.field_button {
+  font-size: 1.6rem;
+  display: inline;
+}
+.field_button input {
+  cursor: pointer;
+  margin-top: 20px;
+  margin-right: 20px;
+  font-size: 1.6rem;
+  padding: 10px 20px;
+}
+
+.hide_pass{
+  position: absolute;
+  bottom : 25%;
+  left: 93%;
+}
+.hide_pass1{
+  position: absolute;
+  bottom : 25%;
+  left: 93%;
+}
+

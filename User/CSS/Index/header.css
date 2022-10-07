@@ -1,0 +1,399 @@
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url(../Fonts/Roboto-Regular.ttf);
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: Roboto-Regular;
+  box-sizing: border-box;
+}
+
+.gird {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.gird__full-width {
+  width: 100%;
+}
+.gird__row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* header */
+.header {
+  background-image: linear-gradient(#f6402d, #ff6533);
+}
+
+/* header top */
+.header-top {
+  height: 50px;
+  /* background-color: #2FAE17; */
+}
+.header-top__navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.header-top__navbar-list {
+  list-style: none;
+  padding: 15px 0px;
+}
+
+.header-top__navbar-item {
+  position: relative;
+  display: inline-block;
+  margin: 0 8px;
+}
+.header-top__navbar-item-link {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 300;
+}
+
+.header-top__navbar-item--separate::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-left: 2px solid #fff;
+  height: 15px;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* header midder */
+.header-midder {
+  height: 80px;
+  /* background-color: #2FAE17; */
+}
+.mid {
+  display: flex;
+  align-items: center;
+}
+.header-logo {
+  width: 150px;
+}
+
+.header-logo_img {
+  width: 160px;
+  cursor: pointer;
+}
+
+.header-search {
+  display: flex;
+  flex: 1;
+  height: 40px;
+  border-radius: 2px;
+  background-color: #dbdbdb;
+}
+.header-cart {
+  
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #59cc42;
+  border-radius: 5%;
+  color: #fff;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: #59cc42;
+  cursor: pointer;
+}
+.header-cart .giohang{
+  margin-left: 5px;
+  text-decoration: none;
+  color: #fff;
+}
+.header-cart .giohang:hover{
+  color: #0084ff;
+}
+
+.header-cart-icon {
+  color: #fff;
+  font-size: 2.7rem;
+}
+.header-cart-p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 10;
+  line-height: 19px;
+}
+.header-search_input-warper {
+  flex: 1;
+  height: 100%;
+}
+.header-search_input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  font-weight: 200;
+  padding: 0 16px;
+  border-radius: 2px;
+}
+
+.header-search_btn {
+  width: 70px;
+  background-color: #ccc;
+  margin: 2px 2px;
+  border: none;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.header-search_btn:hover {
+  opacity: 0.5;
+}
+.header-search_btn-icon {
+  align-items: center;
+  padding: 2px;
+  font-size: 3.6rem;
+}
+/* Search history */
+
+/* Header bottom */
+.header-bottom {
+  height: 87px;
+  /* background-color: #2FAE17; */
+}
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-bottom_list {
+  list-style: none;
+  padding: 15px 0px;
+}
+
+.header-bottom_item {
+  position: relative;
+  display: inline-block;
+  padding: 0 8px;
+  margin: 0 20px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+}
+.header-bottom_phone {
+  font-size: 1.4rem;
+  font-weight: 100;
+}
+.header-bottom_icon {
+  font-size: 3.5rem;
+  font-weight: 300;
+}
+.header-bottom_item a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Thông báo */
+
+@keyframes headerNotify {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.header__notify {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 400px;
+  background-color: rgba(203, 255, 195, 0.5);
+  border: 1px solid #d3d3d3;
+  cursor: default;
+  transform-origin: top right;
+  will-change: opacity, transform;
+  animation: headerNotify ease-in 0.25s;
+  display: none;
+}
+
+.header-top__navbar-item--notify:hover .header__notify {
+  display: block;
+}
+
+.header__notify-header {
+  height: 50px;
+  background-color: #fff;
+}
+.header__notify-header h3 {
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 25px;
+  user-select: none;
+  padding-left: 12px;
+  padding-top: 10px;
+}
+.header__notify-list {
+  padding-left: 0;
+}
+.header__notify-item {
+  display: flex;
+}
+
+.header__notify-link {
+  display: flex;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.header__notify-image {
+  width: 50px;
+  object-fit: contain;
+}
+.header__notify-info {
+  margin-left: 12px;
+}
+.header__notify-name {
+  display: block;
+  font-size: 1.4rem;
+  color: black;
+  font-weight: 400;
+}
+.header__notify:hover {
+  background-color: #ccc;
+}
+
+.header__notify-item:hover {
+  background-color: #fff;
+}
+
+/* Modal */
+.auth-form {
+  width: 500px;
+}
+.auth-form__container {
+  padding: 20px 32px;
+}
+
+.auth-form__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  margin-top: 10px;
+}
+
+.auth-form__heading {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+.auth-form__switch-btn {
+  font-size: 1.6rem;
+  color: red;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.auth-form__form {
+  margin-top: 16px;
+}
+
+.auth-form__input {
+  width: 100%;
+  height: 30px;
+  margin-top: 16px;
+  padding: 0 12px;
+  font-size: 1.4rem;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  outline: none;
+}
+
+.auth-form__p {
+  padding-left: 0 12px;
+  margin-top: 16px;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  text-align: center;
+}
+
+.auth-form__p .register {
+  text-decoration: none;
+  color: rgb(251, 84, 84);
+}
+
+.auth-form-ctrs {
+  margin-top: 80px;
+  display: flex;
+  justify-content: end;
+}
+.ctrs {
+  margin-right: 5px;
+}
+
+
+.auth-form__connect {
+  background-color: #ccc;
+  padding: 12px 36px;
+  display: flex;
+  justify-content: space-between;
+}
+.auth-form__connect span {
+  margin: 0px 10px;
+}
+.auth-form__connect--facebook {
+  color: #fff;
+  background-color: #0084ff;
+}
+
+.auth-form__connect--google {
+  color: #fff;
+  background-color: #666;
+}
+
+/* Form đăng nhập */
+.auth-form__help {
+  display: flex;
+  justify-content: flex-end;
+}
+.auth-form__help-link {
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: #939393;
+}
+.auth-form__p__help {
+  display: block;
+  border-left: 2px solid #eaeaea;
+  margin: 0px 10px;
+  height: 15px;
+}
+
+.auth-form__help-forgot {
+  color: rgb(251, 87, 87);
+}
+.dangxuat{
+  background-color: #F7442E;
+  font-size: 1.5rem;
+  color: #FFF;
+}
+
+#dangxuat{
+  background-color: #F7442E;
+  font-size: 1.5rem;
+  color: #FFF;
+  border: none;
+}

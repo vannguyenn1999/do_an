@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url(../Fonts/Roboto-Regular.ttf);
+}
+
+* {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: Roboto-Regular;
+  box-sizing: border-box;
+}
+
+.gird {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0;
+}
+
+.gird__full-width {
+  width: 100%;
+}
+.gird__row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* MODAL LAYOUT */
+
+@keyframes growth {
+  from {
+    transform: scale(var(--growth-form));
+  }
+  to {
+    transform: scale(var(--growth-to));
+  }
+}
+.modal {
+  /* position: fixed; */
+  margin: 30px;
+  display: flex;
+  /* animation: headerNotify linear 0.1s; */
+  height: 700px;
+}
+
+.modal__body {
+  margin: 10px 0;
+  /* height: 500px; */
+  /* --growth-form :0.7;
+    --growth-to :1; */
+  background-color: rgb(48, 227, 48);
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+  /* animation: growth linear 0.1s; */
+}
+.a-modal {
+  text-decoration: none;
+}
+
+/* Button */
+
+.btn {
+  min-width: 142px;
+  height: 36px;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 0 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide-pass {
+  right: 9%;
+  top: 35.4%;
+  position: absolute;
+}
+.hide-pass1 {
+  right: 9%;
+  top: 58.5%;
+  position: absolute;
+}
+.hide-pass2 {
+  right: 9%;
+  top: 51%;
+  position: absolute;
+}
+
+.btn.btn-size-s {
+  height: 32px;
+  font-size: 1.4rem;
+}
+
+.btn.btn--primary {
+  background-color: rgb(196, 69, 69);
+}
+.auth-form__connect--icon {
+  font-size: 1.8rem;
+}
