@@ -161,6 +161,9 @@ require_once "Admin/Connection.php";
         $id = $_GET['id'];
         echo "mã sản phẩm là : " . $id;
         ?>
+        <table>
+          
+        </table>
 
       </div>
       <div class="right">

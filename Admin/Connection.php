@@ -1,21 +1,11 @@
 <?php 
 
-	$username = "root";
-	$password = "";
-	$host = "localhost";
-	$dbName = "php0722_apple123";
+const DB_HOST = 'localhost';
+const DB_USERNAME = 'root';
+const DB_PASSWORD = '';
+const DB_NAME = "php0722_apple123";
 
-	// try{
-	// 	$conn = new PDO("mysql:host=$host;database=$dbName",$username,$password);
-	// 	$conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	// 	echo "ket noi thanh cong";
-
-	// }catch(PDOException $e){
-	// 	echo " ket noi that bai: ".$e->getMessage();
-	// }
-
-
-	$conn = new mysqli($host,$username,$password,$dbName);
+	$conn = new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
 	if ($conn->connect_error) {
   		die("Connection failed: " . $conn->connect_error);
 	}
