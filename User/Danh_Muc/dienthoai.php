@@ -393,8 +393,38 @@ require_once "../../Admin/Connection.php";
                 <div class="main-deal">
                     <div class="main-deal_product1">
                         <?php               
-                        // $sql_product = "SELECT * FROM san_pham where ma_san_pham BETWEEN 'SP001' AND 'SP005'";
-                        $sql_product = "SELECT * FROM san_pham ";
+                        $sql_product = "SELECT * FROM san_pham  LIMIT 0,5 ";
+                        $pr = mysqli_query($conn, $sql_product);
+                        while ($products = mysqli_fetch_assoc($pr)) {
+                           
+                        ?>
+                            <div class="main-deal_product_1">
+                                <p class="main-deal_product-header">Trả góp <?php echo rand(0, 10) ?> %</p>
+                                <img class="main-deal_product-img" src="<?php
+                                                                        echo '../../Admin/QuanLy/quanlydienthoai/photo/' . $products['anh']
+                                                                        ?>" title="ảnh sản phẩm" />
+                                <a href="chitietsanpham.php?id=<?php echo $products['ma_san_pham'] ?>" class="a_sp">
+                                    <h5 class="main-deal_product_p"><?php echo $products['ten_san_pham'] ?></h5>
+                                </a>
+                                <div class="main-deal_product_cost">
+                                    <h5><?php echo $products['gia'] ?><sup>đ</sup></h5>
+                                    <p><?php echo rand(15, 30) ?> %</p>
+                                </div>
+                                <div class="main-deal_product_start">
+                                    <p><?php echo rand(3, 5) ?></p>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span><?php echo rand(10, 200) ?></span>
+                                </div>
+                            </div>
+                        <?php
+                           
+                            }
+                        ?>
+
+                    </div>
+                    <div class="main-deal_product1">
+                        <?php               
+                        $sql_product = "SELECT * FROM san_pham  LIMIT 5,5 ";
                         $pr = mysqli_query($conn, $sql_product);
                         $tong = 0;
                         while ($products = mysqli_fetch_assoc($pr)) {
@@ -424,14 +454,12 @@ require_once "../../Admin/Connection.php";
                         ?>
 
                     </div>
-                    <!-- <div class="main-deal_product1">
+                    <div class="main-deal_product1">
                         <?php               
-                        // $sql_product = "SELECT * FROM san_pham where ma_san_pham BETWEEN 'SP001' AND 'SP005'";
-                        $sql_product = "SELECT * FROM san_pham limit 5  ";
+                        $sql_product = "SELECT * FROM san_pham  LIMIT 10,5 ";
                         $pr = mysqli_query($conn, $sql_product);
                         $tong = 0;
                         while ($products = mysqli_fetch_assoc($pr)) {
-                           
                         ?>
                             <div class="main-deal_product_1">
                                 <p class="main-deal_product-header">Trả góp <?php echo rand(0, 10) ?> %</p>
@@ -456,8 +484,9 @@ require_once "../../Admin/Connection.php";
                             }
                         ?>
 
-                    </div> -->
-                   
+                    </div>
+                    
+        
                     <div class="main-deal_btn1">
                         <button class="btn">
                             <a href="#">Xem tất cả</a>

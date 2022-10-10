@@ -154,14 +154,14 @@ require_once "Admin/Connection.php";
     <!-- MAIN -->
     <div class="container">
       <div class="left">
-        
+
       </div>
       <div class="gird">
-                <?php
-$id = $_GET['id'];
-echo "mã sản phẩm là : " . $id;
-                ?>
-        
+        <?php
+        $id = $_GET['id'];
+        echo "mã sản phẩm là : " . $id;
+        ?>
+
       </div>
       <div class="right">
         <a href="https://www.facebook.com/VanNguyen280999" target="_blank">

@@ -237,255 +237,42 @@ require_once "Admin/Connection.php";
           <div class="main-deal_logo">
             <img src="User/Images/index/deal/banner.png" alt="" />
           </div>
-
           <div class="main-deal_product">
-            <div class="main-deal_product_1">
+            <div class="main-product-row">
               <?php
               // $sql = "SELECT * FROM san_pham";
-              // $sql =  "SELECT * FROM san_pham WHERE ma_san_pham BETWEEN 'SP001' AND 'SP005'";
-              $sql =  "SELECT * FROM san_pham WHERE ma_san_pham = 'SP001'";
+              $sql =  "SELECT * FROM san_pham LIMIT 0,5";
               $result = mysqli_query($conn, $sql);
-
-              $row = mysqli_fetch_assoc($result);
-              $img = $row['anh'];
-
-
+              while ($row = mysqli_fetch_assoc($result)) {
               ?>
-              <p class="main-deal_product-header">Trả góp 0%</p>
-              <img class="main-deal_product-img" src="<?php
-                                                      echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$img"
-                                                      ?>" alt="" />
-              <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $row['ma_san_pham'] ?>" class="a_sp">
-                <h5 class="main-deal_product_p">
-                  <?php echo $row['ten_san_pham'] ?>
-                </h5>
-              </a>
+                <div class="main-deal_product_1">
+                  <p class="main-deal_product-header">Trả góp 0%</p>
+                  <img class="main-deal_product-img" src="<?php
+                                                          $img = $row['anh'];
+                                                          echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$img"
+                                                          ?>" alt="" />
+                  <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $row['ma_san_pham'] ?>" class="a_sp">
+                    <h5 class="main-deal_product_p">
+                      <?php echo $row['ten_san_pham'] ?>
+                    </h5>
+                  </a>
+                  <div class="main-deal_product_cost">
+                    <!-- <h5>40.990.000 <sup>đ</sup></h5> -->
+                    <h5><?php echo $row['gia'] ?> <sup>đ</sup></h5>
+                    <p><?php echo rand(10,20) ?> %</p>
+                  </div>
+                  <div class="main-deal_product_start">
+                    <p><?php echo (rand(2, 5)) ?></p>
+                    <i class="fa-solid fa-star"></i>
+                    <span>(<?php echo (rand(10, 200)) ?>)</span>
+                  </div>
 
-              <div class="main-deal_product_cost">
-                <!-- <h5>40.990.000 <sup>đ</sup></h5> -->
-                <h5><?php echo $row['gia'] ?> <sup>đ</sup></h5>
-
-                <p>-15%</p>
-              </div>
-              <div class="main-deal_product_start">
-                <p><?php echo (rand(2, 5)) ?></p>
-                <i class="fa-solid fa-star"></i>
-                <span>(<?php echo (rand(10, 200)) ?>)</span>
-              </div>
-
-            </div>
-            <div class="main-deal_product_1">
+                </div>
               <?php
-              // $sql = "SELECT * FROM san_pham";
-              // $sql =  "SELECT * FROM san_pham WHERE ma_san_pham BETWEEN 'SP001' AND 'SP005'";
-              $sql =  "SELECT * FROM san_pham WHERE ma_san_pham = 'SP002'";
-              $result = mysqli_query($conn, $sql);
-
-              $row = mysqli_fetch_assoc($result);
-              $img = $row['anh'];
-
-
+              }
               ?>
-              <p class="main-deal_product-header">Trả góp 0%</p>
-              <img class="main-deal_product-img" src="<?php
-                                                      echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$img"
-                                                      ?>" alt="" />
-              <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $row['ma_san_pham'] ?>" class="a_sp">
-                <h5 class="main-deal_product_p">
-                  <?php echo $row['ten_san_pham'] ?>
-                </h5>
-              </a>
-
-              <div class="main-deal_product_cost">
-                <!-- <h5>40.990.000 <sup>đ</sup></h5> -->
-                <h5><?php echo $row['gia'] ?> <sup>đ</sup></h5>
-
-                <p>-15%</p>
-              </div>
-              <div class="main-deal_product_start">
-                <p><?php echo (rand(2, 5)) ?></p>
-                <i class="fa-solid fa-star"></i>
-                <span>(<?php echo (rand(10, 200)) ?>)</span>
-              </div>
-
             </div>
-            <div class="main-deal_product_1">
-              <?php
-              // $sql = "SELECT * FROM san_pham";
-              // $sql =  "SELECT * FROM san_pham WHERE ma_san_pham BETWEEN 'SP001' AND 'SP005'";
-              $sql =  "SELECT * FROM san_pham WHERE ma_san_pham = 'SP003'";
-              $result = mysqli_query($conn, $sql);
-
-              $row = mysqli_fetch_assoc($result);
-              $img = $row['anh'];
-
-
-              ?>
-              <p class="main-deal_product-header">Trả góp 0%</p>
-              <img class="main-deal_product-img" src="<?php
-                                                      echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$img"
-                                                      ?>" alt="" />
-              <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $row['ma_san_pham'] ?>" class="a_sp">
-                <h5 class="main-deal_product_p">
-                  <?php echo $row['ten_san_pham'] ?>
-                </h5>
-              </a>
-
-              <div class="main-deal_product_cost">
-                <!-- <h5>40.990.000 <sup>đ</sup></h5> -->
-                <h5><?php echo $row['gia'] ?> <sup>đ</sup></h5>
-
-                <p>-15%</p>
-              </div>
-              <div class="main-deal_product_start">
-                <p><?php echo (rand(2, 5)) ?></p>
-                <i class="fa-solid fa-star"></i>
-                <span>(<?php echo (rand(10, 200)) ?>)</span>
-              </div>
-
-            </div>
-            <div class="main-deal_product_1">
-              <?php
-              // $sql = "SELECT * FROM san_pham";
-              // $sql =  "SELECT * FROM san_pham WHERE ma_san_pham BETWEEN 'SP001' AND 'SP005'";
-              $sql =  "SELECT * FROM san_pham WHERE ma_san_pham = 'SP004'";
-              $result = mysqli_query($conn, $sql);
-
-              $row = mysqli_fetch_assoc($result);
-              $img = $row['anh'];
-
-
-              ?>
-              <p class="main-deal_product-header">Trả góp 0%</p>
-              <img class="main-deal_product-img" src="<?php
-                                                      echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$img"
-                                                      ?>" alt="" />
-              <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $row['ma_san_pham'] ?>" class="a_sp">
-                <h5 class="main-deal_product_p">
-                  <?php echo $row['ten_san_pham'] ?>
-                </h5>
-              </a>
-
-              <div class="main-deal_product_cost">
-                <!-- <h5>40.990.000 <sup>đ</sup></h5> -->
-                <h5><?php echo $row['gia'] ?> <sup>đ</sup></h5>
-
-                <p>-15%</p>
-              </div>
-              <div class="main-deal_product_start">
-                <p><?php echo (rand(2, 5)) ?></p>
-                <i class="fa-solid fa-star"></i>
-                <span>(<?php echo (rand(10, 200)) ?>)</span>
-              </div>
-
-            </div>
-            <div class="main-deal_product_1">
-              <?php
-              // $sql = "SELECT * FROM san_pham";
-              // $sql =  "SELECT * FROM san_pham WHERE ma_san_pham BETWEEN 'SP001' AND 'SP005'";
-              $sql =  "SELECT * FROM san_pham WHERE ma_san_pham = 'SP005'";
-              $result = mysqli_query($conn, $sql);
-
-              $row = mysqli_fetch_assoc($result);
-              $img = $row['anh'];
-
-
-              ?>
-              <p class="main-deal_product-header">Trả góp 0%</p>
-              <img class="main-deal_product-img" src="<?php
-                                                      echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$img"
-                                                      ?>" alt="" />
-              <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $row['ma_san_pham'] ?>" class="a_sp">
-                <h5 class="main-deal_product_p">
-                  <?php echo $row['ten_san_pham'] ?>
-                </h5>
-              </a>
-
-              <div class="main-deal_product_cost">
-                <!-- <h5>40.990.000 <sup>đ</sup></h5> -->
-                <h5><?php echo $row['gia'] ?> <sup>đ</sup></h5>
-
-                <p>-15%</p>
-              </div>
-              <div class="main-deal_product_start">
-                <p><?php echo (rand(2, 5)) ?></p>
-                <i class="fa-solid fa-star"></i>
-                <span>(<?php echo (rand(10, 200)) ?>)</span>
-              </div>
-
-            </div>
-            <!-- <div class="main-deal_product_1">
-                <p class="main-deal_product-header">Trả góp 0%</p>
-                <img class="main-deal_product-img" src="" alt="" />
-                <a href="User/Danh_Muc/chitietsanpham.php" class="a_sp">
-                  <h5 class="main-deal_product_p">Iphone 13 Pro Max 128GB</h5>
-                </a>
-
-                <div class="main-deal_product_cost">
-                  <h5>28.790.000<sup>đ</sup></h5>
-                  <p>-25%</p>
-                </div>
-                <div class="main-deal_product_start">
-                  <p>4.7</p>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(100)</span>
-                </div>
-              </div>
-              <div class="main-deal_product_1">
-                <p class="main-deal_product-header">Trả góp 0%</p>
-                <img class="main-deal_product-img" src="User/Images/index/deal/3.jpg" alt="" />
-                <a href="User/Danh_Muc/chitietsanpham.php" class="a_sp">
-                  <h5 class="main-deal_product_p">OPPO A54</h5>
-                </a>
-
-                <div class="main-deal_product_cost">
-                  <h5>3.790.000<sup>đ</sup></h5>
-                  <p>-45%</p>
-                </div>
-                <div class="main-deal_product_start">
-                  <p>4.1</p>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(20)</span>
-                </div>
-              </div>
-              <div class="main-deal_product_1">
-                <p class="main-deal_product-header">Trả góp 0%</p>
-                <img class="main-deal_product-img" src="User/Images/index/deal/4.jpg" alt="" />
-                <a href="User/Danh_Muc/chitietsanpham.php" class="a_sp">
-                  <h5 class="main-deal_product_p">Samsung Galaxy A33 5G</h5>
-                </a>
-
-                <div class="main-deal_product_cost">
-                  <h5>6.890.000<sup>đ</sup></h5>
-                  <p>-35%</p>
-                </div>
-                <div class="main-deal_product_start">
-                  <p>4.6</p>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(256)</span>
-                </div>
-              </div>
-              <div class="main-deal_product_1">
-                <p class="main-deal_product-header">Trả góp 0%</p>
-                <img class="main-deal_product-img" src="User/Images/index/deal/5.jpg" alt="" deal_btndeal_btn />
-                <a href="User/Danh_Muc/chitietsanpham.php" class="a_sp">
-                  <h5 class="main-deal_product_p">
-                    Samsung Galaxy Watch5 Pro LTE 45mm dây silicone
-                  </h5>
-                </a>
-
-                <div class="main-deal_product_cost">
-                  <h5>12.990.000<sup>đ</sup></h5>
-                  <p>-25%</p>
-                </div>
-                <div class="main-deal_product_start">
-                  <p>4.6</p>
-                  <i class="fa-solid fa-star"></i>
-                  <span>(256)</span>
-                </div>
-              </div> -->
           </div>
-
           <div class="main-deal_btn">
             <button class="btn">
               <a href="#">Xem tất cả</a>
@@ -775,69 +562,69 @@ require_once "Admin/Connection.php";
           <div class="main-product-content">
             <div class="main-product-row">
               <?php
-              $sql_product = "SELECT * FROM san_pham where ma_san_pham BETWEEN 'SP006' AND 'SP010'";
+              $sql_product = "SELECT * FROM san_pham LIMIT 5,5";
               // $sql_product = "SELECT * FROM san_pham ";
               $pr = mysqli_query($conn, $sql_product);
               while ($products = mysqli_fetch_assoc($pr)) {
-                
-              ?>
-                  <div class="main-deal_product_1">
-                    <p class="main-deal_product-header">Trả góp <?php echo rand(0, 10) ?> %</p>
-                    <img class="main-deal_product-img" src="<?php
-                                                            $anh = $products['anh'];
-                                                            echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$anh"
-                                                            ?>" title="ảnh sản phẩm" />
-                    <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $products['ma_san_pham'] ?>" class="a_sp">
-                      <h5 class="main-deal_product_p"><?php echo $products['ten_san_pham'] ?></h5>
-                    </a>
-                    <div class="main-deal_product_cost">
-                      <h5><?php echo $products['gia'] ?><sup>đ</sup></h5>
-                      <p><?php echo rand(15, 30) ?> %</p>
-                    </div>
-                    <div class="main-deal_product_start">
-                      <p><?php echo rand(3, 5) ?></p>
-                      <i class="fa-solid fa-star"></i>
-                      <span><?php echo rand(10, 200) ?></span>
-                    </div>
-                  </div>
-                <?php
-                }
 
-                ?>
+              ?>
+                <div class="main-deal_product_1">
+                  <p class="main-deal_product-header">Trả góp <?php echo rand(0, 10) ?> %</p>
+                  <img class="main-deal_product-img" src="<?php
+                                                          $anh = $products['anh'];
+                                                          echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$anh"
+                                                          ?>" title="ảnh sản phẩm" />
+                  <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $products['ma_san_pham'] ?>" class="a_sp">
+                    <h5 class="main-deal_product_p"><?php echo $products['ten_san_pham'] ?></h5>
+                  </a>
+                  <div class="main-deal_product_cost">
+                    <h5><?php echo $products['gia'] ?><sup>đ</sup></h5>
+                    <p><?php echo rand(15, 30) ?> %</p>
+                  </div>
+                  <div class="main-deal_product_start">
+                    <p><?php echo rand(3, 5) ?></p>
+                    <i class="fa-solid fa-star"></i>
+                    <span><?php echo rand(10, 200) ?></span>
+                  </div>
+                </div>
+              <?php
+              }
+
+              ?>
             </div>
-           
+
             <div class="main-product-row">
               <?php
-              $sql_product = "SELECT * FROM san_pham where ma_san_pham BETWEEN 'SP001' AND 'SP005'";
+              $sql_product = "SELECT * FROM san_pham LIMIT 10,5";
               // $sql_product = "SELECT * FROM san_pham ";
               $pr = mysqli_query($conn, $sql_product);
               $tong = 0;
               while ($products = mysqli_fetch_assoc($pr)) {
-               
-              ?>
-                  <div class="main-deal_product_1">
-                    <p class="main-deal_product-header">Trả góp <?php echo rand(0, 10) ?> %</p>
-                    <img class="main-deal_product-img" src="<?php
-                                                            $anh = $products['anh'];
-                                                            echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$anh"
-                                                            ?>" title="ảnh sản phẩm" />
-                    <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $products['ma_san_pham'] ?>" class="a_sp">
-                      <h5 class="main-deal_product_p"><?php echo $products['ten_san_pham'] ?></h5>
-                    </a>
-                    <div class="main-deal_product_cost">
-                      <h5><?php echo $products['gia'] ?><sup>đ</sup></h5>
-                      <p><?php echo rand(15, 30) ?> %</p>
-                    </div>
-                    <div class="main-deal_product_start">
-                      <p><?php echo rand(3, 5) ?></p>
-                      <i class="fa-solid fa-star"></i>
-                      <span><?php echo rand(10, 200) ?></span>
-                    </div>
-                  </div>
-                <?php
-                }
 
-               ?>
+              ?>
+                <div class="main-deal_product_1">
+                  <p class="main-deal_product-header">Trả góp <?php echo rand(0, 10) ?> %</p>
+                  <img class="main-deal_product-img" src="<?php
+                                                          $anh = $products['anh'];
+                                                          echo 'Admin/QuanLy/quanlydienthoai/photo/' . "$anh"
+                                                          ?>" title="ảnh sản phẩm" />
+                  <a href="User/Danh_Muc/chitietsanpham.php?id=<?php echo $products['ma_san_pham'] ?>" class="a_sp">
+                    <h5 class="main-deal_product_p"><?php echo $products['ten_san_pham'] ?></h5>
+                  </a>
+                  <div class="main-deal_product_cost">
+                    <h5><?php echo $products['gia'] ?><sup>đ</sup></h5>
+                    <p><?php echo rand(15, 30) ?> %</p>
+                  </div>
+                  <div class="main-deal_product_start">
+                    <p><?php echo rand(3, 5) ?></p>
+                    <i class="fa-solid fa-star"></i>
+                    <span><?php echo rand(10, 200) ?></span>
+                  </div>
+                </div>
+              <?php
+              }
+
+              ?>
 
             </div>
             <br>
@@ -870,7 +657,6 @@ require_once "Admin/Connection.php";
         </a>
       </div>
     </div>
-
     <!-- FOOTER -->
     <footer class="footer">
       <div class="gird">
