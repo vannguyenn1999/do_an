@@ -155,7 +155,6 @@ require_once "Admin/Connection.php";
     <div class="container">
       <div class="left">
         <img src="User/Images/ads/left.png" alt="" />
-        <a href="test.php">đ</a>
       </div>
       <div class="gird">
         <!-- main banner -->
