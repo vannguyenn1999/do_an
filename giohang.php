@@ -1,7 +1,10 @@
 <?php
 session_start();
 require_once "Admin/Connection.php";
-
+if(!isset($_SESSION['user_name'])){
+  $_SESSION['error'] = "Mời Bạn Đăng Nhập, Để Xem Giỏ Hàng Của Bạn !!";
+  header("Location: User/System/dangnhap.php");
+}
 
 ?>
 <!DOCTYPE html>
