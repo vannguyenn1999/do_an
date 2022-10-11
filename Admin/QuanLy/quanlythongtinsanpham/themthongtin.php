@@ -69,17 +69,14 @@ if (isset($_POST['submit'])) {
 	} 
 
     if (empty($giam_gia)) {
-		$errKm = 'Mời bạn nhập thông tin khuyến mại';
-	} else if($giam_gia==0){
-		$errKm = "";
-	}
-	if (empty($errMaSP) && empty($errCH)  && empty($errT) && empty($errS) && empty($errRam) && empty($errDl) && empty($errKm)) {
+		$giam_gia = 0;
+	} 
+	if (empty($errMaSP) && empty($errCH)  && empty($errT) && empty($errS) && empty($errRam) && empty($errDl)) {
 		$newDl = $dung_luong . ' GB';
 		$sql = "INSERT INTO thong_tin_chi_tiet( ma_san_pham, cau_hinh, cam_truoc, cam_sau, ram, dung_luong, giam_gia) VALUES ('$ma_san_pham','$cau_hinh','$cam_truoc','$cam_sau','$ram','$newDl','$giam_gia')";
 		$result = mysqli_query($conn, $sql);
 		if ($result) {
-			$message = "Thêm thành công , Bạn có muốn trở lại trang chủ ?";
-			echo "<script type='text/javascript'>alert('$message');</script>";
+			$_SESSION['success'] = "Thêm thành công ";
 			header("Location: danhsachthongtin.php");
 		}else{
 			echo "Error: " . $sql . "<br>" . $conn->error;
@@ -175,7 +172,6 @@ if (isset($_POST['submit'])) {
 					<div class="form-group">
 						<label for="soluong">Thông Tin Khuyến Mãi</label>
 						<input type="text" name="khuyenmai" class="form-control" value="<?php echo isset($_POST['khuyenmai']) ? $_POST['khuyenmai'] : '' ?>">
-						<label for="err" class="err"> <?php echo $errKm; ?></label>
 					</div>
 					<button type="submit" class="btn btn-success" name="submit" ><i class="fa-solid fa-circle-plus"></i> Thêm Thông Sản Phẩm</button>
 					<a href="themthongtin.php" class="btn btn-dark" id="a_btn"><i class="fa-solid fa-arrow-rotate-left"></i> Làm Mới</a>

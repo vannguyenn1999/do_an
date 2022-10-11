@@ -5,6 +5,21 @@ if(!isset($_SESSION['admin_login'])){
   $_SESSION['error'] = 'Bạn chưa đăng nhập, xin vui lòng đăng nhập';
   header("Location: ../../../Admin_Login.php");
 }
+if(isset($_SESSION['success_sp'])){
+	$message = $_SESSION['success_sp'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	unset($_SESSION['success_sp']);
+}
+if(isset($_SESSION['update_sp'])){
+	$message = $_SESSION['update_sp'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	unset($_SESSION['update_sp']);
+}
+if(isset($_SESSION['delete_sp'])){
+	$message = $_SESSION['delete_sp'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	unset($_SESSION['delete_sp']);
+}
 ?>
 <!doctype html>
 <html lang="en">

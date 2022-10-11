@@ -76,7 +76,7 @@ session_start();
                         <input type="submit" name="submit" value="Đăng nhập"></br>
                     </div>
                     <div class="field button">
-                        <a href="index.html">Trang Chủ</a>
+                        <a href="index.php">Trang Chủ</a>
                     </div>
             </form>
             <!-- <div class="link">Bạn Đã Có Tài Khoản Chưa ? <a href="#">Đăng ký tại đây</a> </div> -->

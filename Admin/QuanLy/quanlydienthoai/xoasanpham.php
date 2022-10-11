@@ -1,6 +1,5 @@
 <?php
-
-    //Lấy dữ liệu cần xoá
+session_start();    //Lấy dữ liệu cần xoá
 
 use LDAP\Connection;
 
@@ -19,15 +18,14 @@ use LDAP\Connection;
             mysqli_query($conn, $sql);
             $delete_sql = "DELETE FROM san_pham WHERE ma_san_pham='$ma_san_pham'";
             mysqli_query($conn, $delete_sql);
-            $message = "Xoá thành công";
-            echo "<script type='text/javascript'>alert('$message');</script>";
+            $_SESSION['delete_sp'] = "Xoá Thành Công";
             header("Location: danhsachsanpham.php");
 
 		}else{
             $delete_sql = "DELETE FROM san_pham WHERE ma_san_pham='$ma_san_pham'";
             mysqli_query($conn, $delete_sql);
-            $message = "Xoá thành công";
-            echo "<script type='text/javascript'>alert('$message');</script>";
+            $_SESSION['delete_sp'] = "Xoá Thành Công";
+
             header("Location: danhsachsanpham.php");
             
         }

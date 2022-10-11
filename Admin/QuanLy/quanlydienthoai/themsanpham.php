@@ -94,8 +94,7 @@ if (isset($_POST['submit'])) {
 		$sql = "INSERT INTO san_pham(ma_san_pham, ten_san_pham, anh, gia, so_luong, id_kieu, ten_nhan_hieu, thong_tin) VALUES ('$ma_san_pham','$ten_san_pham','$image','$gia','$so_luong','$id_kieu','$ten_nhan_hieu','$thong_tin')";
 		$result = mysqli_query($conn, $sql);
 		if ($result) {
-			$message = "Thêm thành công , Bạn có muốn trở lại trang chủ ?";
-			echo "<script type='text/javascript'>alert('$message');</script>";
+			$_SESSION['success_sp'] = "Thêm Thành Công";
 			header("Location: danhsachsanpham.php");
 		}else{
 			echo "Error: " . $sql . "<br>" . $conn->error;

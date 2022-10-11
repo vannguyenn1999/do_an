@@ -13,8 +13,7 @@ use LDAP\Connection;
 
    
     if (mysqli_query($conn, $delete_sql)) {
-        $message = "Xoá thành công";
-		echo "<script type='text/javascript'>alert('$message');</script>";
+        $_SESSION['delete_tk'] = "Xoá thành công";
        	header("Location: danhsachtaikhoan.php");
     } else {
         echo "Error deleting record: " . mysqli_error($conn);

@@ -4,6 +4,21 @@ if(!isset($_SESSION['admin_login'])){
   $_SESSION['error'] = 'Bạn chưa đăng nhập, xin vui lòng đăng nhập';
   header("Location: ../../../Admin_Login.php");
 }
+if(isset($_SESSION['success_hang'])){
+	$message = $_SESSION['success_hang'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	unset($_SESSION['success_hang']);
+}
+if(isset($_SESSION['update_hang'])){
+	$message = $_SESSION['update_hang'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	unset($_SESSION['update_hang']);
+}
+if(isset($_SESSION['delete_hang'])){
+	$message = $_SESSION['delete_hang'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	unset($_SESSION['delete_hang']);
+}
 ?>
 
 <!doctype html>
@@ -78,7 +93,7 @@ if(!isset($_SESSION['admin_login'])){
 							<td><?php echo $r['ten_nhan_hieu'] ?></td>
 							<td><?php echo $r['thong_tin'] ?></td>
 							<td><a href="thongtinhangsanpham.php?ten_nhan_hieu=<?php echo $r['ten_nhan_hieu']?>" class="btn btn-info"> Sửa</a></td>
-							<td><a onclick="return confirm('bạn có muốn xoá hãng sản phẩm này không ??')" href="xoahangsanpham.php?id=<?php echo $r['ten_nhan_hieu'] ?>" class="btn btn-danger"> <i class="fa fa-trash"></i></a></td>
+							<td><a onclick="return confirm('bạn có muốn xoá hãng sản phẩm này không ??')" href="xoahang.php?id=<?php echo $r['ten_nhan_hieu'] ?>" class="btn btn-danger"> <i class="fa fa-trash"></i></a></td>
 						</tr>
 					<?php
 					}

@@ -22,9 +22,7 @@ require_once '../../Connection.php';
 if (isset($_GET['submit'])) {
     $Update_product = "update san_pham set ten_san_pham='$ten_san_pham', gia='$$gia', so_luong='$so_luong', id_kieu='$id_kieu',ten_nhan_hieu='$ten_nhan_hieu', thong_tin='$thong_tin' where ma_san_pham='$ma_san_pham'";
     if (mysqli_query($conn, $Update_product)) {
-        $message = "Sửa thành công";
-        echo "<script type='text/javascript'>alert('$message');</script>";
-        echo "đâsd";
+        $_SESSION['update_sp'] = "Sửa Thành Công";
         header("Location: danhsachsanpham.php");
     } else {
         $message = "Lỗi";

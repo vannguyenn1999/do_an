@@ -2,7 +2,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['admin_login'])){
-  $_SESSION['error'] = 'Bạn chưa đăng nhập, xin vui lòng đăng nhập';
+  $_SESSION['error'] = 'Bạn phải đăng nhập với quyền Admin để vào trang này, xin vui liên hệ Amin';
   header("Location: ../Admin_Login.php");
 }
 ?>

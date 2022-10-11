@@ -37,8 +37,7 @@ if (isset($_POST['submit'])) {
 		$sql = "INSERT INTO nhan_hieu(ten_nhan_hieu, thong_tin) VALUES ('$ten_nhan_hieu','$thong_tin')";
 		$result = mysqli_query($conn, $sql);
 		if ($result) {
-			$message = "Thêm thành công , Bạn có muốn trở lại trang chủ ?";
-			echo "<script type='text/javascript'>alert('$message');</script>";
+			$_SESSION['success_hang'] = "Thêm Thành Công ";
 			header("Location: danhsachhangsanpham.php");
 		}else{
 			echo "Error: " . $sql . "<br>" . $conn->error;

@@ -4,6 +4,12 @@ if(!isset($_SESSION['admin_login'])){
   $_SESSION['error'] = 'Bạn chưa đăng nhập, xin vui lòng đăng nhập';
   header("Location: ../../../Admin_Login.php");
 }
+if(isset($_SESSION['delete_tk'])){
+	$message = $_SESSION['delete_tk'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	unset($_SESSION['delete_tk']);
+}
+
 ?>
 <!doctype html>
 <html lang="en">

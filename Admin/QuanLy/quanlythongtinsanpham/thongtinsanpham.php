@@ -55,23 +55,23 @@ $row = mysqli_fetch_assoc($result);
 					</div>
 
 					<div class="form-group">
-						<label for="giasp">Thông Tin Cam Trước</label>
-						<input type="text" name="camtruoc" class="form-control" value="<?php echo $row['cam_truoc']; ?>">
-					</div>
-					<div class="form-group">
-						<label for="soluong">Số Lượng</label>
+						<label for="giasp">Thông Tin Cam Sau</label>
 						<input type="text" name="camsau" class="form-control" value="<?php echo $row['cam_sau']; ?>">
 					</div>
 					<div class="form-group">
-						<label for="soluong">Số Lượng</label>
+						<label for="soluong">Thông Tin Cam Trước</label>
+						<input type="text" name="camtruoc" class="form-control" value="<?php echo $row['cam_truoc']; ?>">
+					</div>
+					<div class="form-group">
+						<label for="soluong">Thông Tin Chip</label>
 						<input type="text" name="ram" class="form-control" value="<?php echo $row['ram']; ?>">
 					</div>
 					<div class="form-group">
-						<label for="soluong">Số Lượng</label>
+						<label for="soluong">Thông Tin Dung Lượng</label>
 						<input type="text" name="dungluong" class="form-control" value="<?php echo $row['dung_luong']; ?>">
 					</div>
 					<div class="form-group">
-						<label for="soluong">Số Lượng</label>
+						<label for="soluong">Khuyến Mại</label>
 						<input type="text" name="giamgia" class="form-control" value="<?php echo $row['giam_gia']; ?>">
 					</div>
 

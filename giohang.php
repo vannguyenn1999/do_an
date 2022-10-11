@@ -158,11 +158,36 @@ require_once "Admin/Connection.php";
       </div>
       <div class="gird">
         <?php
-        $id = $_GET['id'];
-        echo "mã sản phẩm là : " . $id;
+        if (isset($_GET['id'])) {
+          $id = $_GET['id'];
+          echo "mã sản phẩm là : " . $id;
+        }
+
         ?>
         <table>
-          
+          <tr>
+            <th>STT</th>
+            <th>Mã Sản Phẩm</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Ảnh</th>
+            <th>Số Lượng</th>
+            <th>Giá</th>
+            <th>Khuyến Mại</th>
+            <th>Thành Tiền</th>
+            <th>Thao Tác</th>
+
+          </tr>
+          <tr>
+           <td>1</td>
+           <td>SP001</td>
+           <td>IPhone 14 Pro Max</td>
+           <td></td>
+           <td>1</td>
+           <td>40000000</td>
+           <td>1000000</td>
+           <td>39000000</td>
+           <td>xoá</td>
+          </tr>
         </table>
 
       </div>

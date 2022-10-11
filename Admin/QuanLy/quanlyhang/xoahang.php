@@ -1,5 +1,5 @@
 <?php
-
+session_start();
     //Lấy dữ liệu cần xoá
 
 use LDAP\Connection;
@@ -13,8 +13,7 @@ use LDAP\Connection;
 
    
     if (mysqli_query($conn, $delete_sql)) {
-        $message = "Xoá thành công";
-		echo "<script type='text/javascript'>alert('$message');</script>";
+       $_SESSION['delete_hang'] = "Xoá Thành Công";
        	header("Location: danhsachhangsanpham.php");
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
