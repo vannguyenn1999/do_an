@@ -308,76 +308,36 @@ require_once "../../Admin/Connection.php";
                         <img src="https://cdn.tgdd.vn/2022/08/banner/desk-1200x100-1200x100-1200x100.png" alt="">
                     </div>
                     <div class="main-deal_product">
-                        <div class="main-deal_product_1">
-                            <p class="main-deal_product-header">Trả góp 0%</p>
-                            <img class="main-deal_product-img" src="https://cdn.tgdd.vn/Products/Images/42/153856/TimerThumb/iphone-11-(50).jpg" alt="">
-                            <h5 class="main-deal_product_p">iPhone 11 64GB</h5>
-                            <div class="main-deal_product_cost">
-                                <h5>11.190.000<sup>đ</sup></h5>
-                                <p>-30%</p>
+                    <?php               
+                        $sql_product_ip = "SELECT * FROM san_pham  where ten_san_pham like '%iphone%' limit 5 ";
+                      
+                        $ip = mysqli_query($conn, $sql_product_ip);
+                        // print_r($ip);
+                        while ($product_ip = mysqli_fetch_assoc($ip)) {
+                           
+                        ?>
+                       <div class="main-deal_product_1">
+                                <p class="main-deal_product-header">Trả góp <?php echo rand(0, 10) ?> %</p>
+                                <img class="main-deal_product-img" src="<?php
+                                                                        echo '../../Admin/QuanLy/quanlydienthoai/photo/' . $product_ip['anh']
+                                                                        ?>" title="ảnh sản phẩm" />
+                                <a href="chitietsanpham.php?id=<?php echo $product_ip['ma_san_pham'] ?>" class="a_sp">
+                                    <h5 class="main-deal_product_p"><?php echo $product_ip['ten_san_pham'] ?></h5>
+                                </a>
+                                <div class="main-deal_product_cost">
+                                    <h5><?php echo $product_ip['gia'] ?><sup>đ</sup></h5>
+                                    <p><?php echo rand(15, 30) ?> %</p>
+                                </div>
+                                <div class="main-deal_product_start">
+                                    <p><?php echo rand(3, 5) ?></p>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span><?php echo rand(10, 200) ?></span>
+                                </div>
                             </div>
-                            <div class="main-deal_product_start">
-                                <p>4</p>
-                                <i class="fa-solid fa-star"></i>
-                                <span>(795)</span>
-                            </div>
-                        </div>
-                        <div class="main-deal_product_1">
-                            <p class="main-deal_product-header">Trả góp 0%</p>
-                            <img class="main-deal_product-img" src="https://cdn.tgdd.vn/Products/Images/42/230529/TimerThumb/iphone-13-pro-max-(20).jpg" alt="">
-                            <h5 class="main-deal_product_p">iPhone 13 Pro Max 128GB</h5>
-                            <div class="main-deal_product_cost">
-                                <h5>28.490.000<sup>đ</sup></h5>
-                                <p>-25%</p>
-                            </div>
-                            <div class="main-deal_product_start">
-                                <p>5</p>
-                                <i class="fa-solid fa-star"></i>
-                                <span>(256)</span>
-                            </div>
-                        </div>
-                        <div class="main-deal_product_1">
-                            <p class="main-deal_product-header">Trả góp 0%</p>
-                            <img class="main-deal_product-img" src="https://cdn.tgdd.vn/Products/Images/42/230521/TimerThumb/iphone-13-pro-(16).jpg" alt="">
-                            <h5 class="main-deal_product_p">iPhone 13 Pro 128GB</h5>
-                            <div class="main-deal_product_cost">
-                                <h5>25.490.000<sup>đ</sup></h5>
-                                <p>-15%</p>
-                            </div>
-                            <div class="main-deal_product_start">
-                                <p>4</p>
-                                <i class="fa-solid fa-star"></i>
-                                <span>(145)</span>
-                            </div>
-                        </div>
-                        <div class="main-deal_product_1">
-                            <p class="main-deal_product-header">Trả góp 0%</p>
-                            <img class="main-deal_product-img" src="https://cdn.tgdd.vn/Products/Images/42/223602/TimerThumb/iphone-13-(16).jpg" alt="">
-                            <h5 class="main-deal_product_p">iPhone 13 128GB</h5>
-                            <div class="main-deal_product_cost">
-                                <h5>19.990.000<sup>đ</sup></h5>
-                                <p>-15%</p>
-                            </div>
-                            <div class="main-deal_product_start">
-                                <p>4</p>
-                                <i class="fa-solid fa-star"></i>
-                                <span>(99)</span>
-                            </div>
-                        </div>
-                        <div class="main-deal_product_1">
-                            <p class="main-deal_product-header">Trả góp 0%</p>
-                            <img class="main-deal_product-img" src="https://cdn.tgdd.vn/Products/Images/42/236780/iphone-13-mini-xanh-la-thumb-600x600.jpg" alt="">
-                            <h5 class="main-deal_product_p">iPhone 13 mini 128GB</h5>
-                            <div class="main-deal_product_cost">
-                                <h5>18.990.000<sup>đ</sup></h5>
-                                <p>-15%</p>
-                            </div>
-                            <div class="main-deal_product_start">
-                                <p>5</p>
-                                <i class="fa-solid fa-star"></i>
-                                <span>(44)</span>
-                            </div>
-                        </div>
+                        <?php
+                           
+                            }
+                        ?>
 
                     </div>
                     
