@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 07, 2022 lúc 05:41 PM
+-- Thời gian đã tạo: Th10 14, 2022 lúc 01:19 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.11
 
@@ -83,9 +83,14 @@ CREATE TABLE `bang_hieu` (
 CREATE TABLE `gio_hang` (
   `id` int(11) NOT NULL,
   `ma_san_pham` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `so_luong` int(5) NOT NULL,
-  `thanh_tien` int(11) NOT NULL,
-  `giam_gia` int(10) DEFAULT NULL
+  `ten_san_pham` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `anh` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `so_luong` int(3) NOT NULL,
+  `gia` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `giam_gia` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thanh_tien` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ngay_tao` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -184,13 +189,15 @@ INSERT INTO `san_pham` (`ma_san_pham`, `ten_san_pham`, `anh`, `so_luong`, `id_ki
 ('SP011', ' iPhone 11', 'iphone-xi-xanhla-600x600.jpg', '10', 'Điện thoại', 'Iphone', ' iPhone 11 64GB có mức giá rẻ nhất nhưng vẫn được nâng cấp mạnh mẽ như iPhone Xr ra mắt trước đó.', '11990000'),
 ('SP012', 'Xiaomi Redmi A1', 'Xiaomi-Redmi-A1-green-thumb-600x600.jpg', '5', 'Điện thoại', 'Xiaomi', 'Xiaomi Redmi A1 Xanh Lá được mở bán với mức giá cực kỳ ưu đãi dành cho người dùng nhằm mang lại những trải nghiệm tốt hơn trên các thiết bị giá rẻ, tích hợp bên trong là một viên pin có dung lượng lớn cùng màn hình đủ lớn để bạn có thể thỏa thích xem phim ', '2190000'),
 ('SP013', 'Samsung Galaxy A53 5G', 'Samsung-Galaxy-A53-xanh-thumb-600x600.jpg', '2', 'Điện thoại', 'Samsung', 'Samsung Galaxy A53 5G 128GB trình làng với một thiết kế hiện đại, hiệu năng ổn định cùng một màn hình hiển thị sắc nét', '10000000'),
-('SP014', 'Samsung Galaxy A23 6GB', 'samsung-galaxy-a23-xanh-thumb-600x600.jpg', '7', 'Điện thoại', 'Iphone', 'Được Samsung cho ra mắt vào 03/2022 - Samsung Galaxy A23 6GB có một thiết kế trẻ trung cùng bộ thông số kỹ thuật khá ấn tượng trong tầm giá, đáp ứng nhu cầu sử dụng cả ngày một cách ổn định nhờ trang bị chipset đến từ nhà Qualcomm và một viên pin dung lượng', '$$6190000'),
+('SP014', 'Samsung Galaxy A23 6GB', 'samsung-galaxy-a23-xanh-thumb-600x600.jpg', '7', 'Điện thoại', 'Iphone', 'Được Samsung cho ra mắt vào 03/2022 - Samsung Galaxy A23 6GB có một thiết kế trẻ trung cùng bộ thông số kỹ thuật khá ấn tượng trong tầm giá, đáp ứng nhu cầu sử dụng cả ngày một cách ổn định nhờ trang bị chipset đến từ nhà Qualcomm và một viên pin dung lượng', '6190000'),
 ('SP015', 'Samsung Galaxy A33 5G 6GB', 'samsung-galaxy-a33-5g-xanh-thumb-600x600.jpg', '2', 'Điện thoại', 'Samsung', 'Samsung Galaxy A33 5G 6GB ra mắt vào ngày 17/03, được xem là bản cập nhật khá lớn so với thế hệ tiền nhiệm Galaxy A32 về thiết kế đến thông số kỹ thuật bên trong, nhằm mang đến vẻ ngoài đẹp mắt cũng như cạnh tranh trực tiếp ở phần hiệu năng đối với các đối thủ cùng phân khúc giá', '7290000'),
 ('SP016', 'VIVO V25E', 'vivo-v25e-vang-thumb-1-2-600x600.jpg', '9', 'Điện thoại', 'ViVo', 'hàng mới về chất lượng\r\n', '8490000'),
 ('SP017', 'OPPO Reno8 Pro 5G', 'oppo-reno8-pro-thumb-xanh-1-600x600.jpg', '5', 'Điện thoại', 'Oppo', 'OPPO Reno8 Pro 5G ra mắt với sự đột phá về phần camera khi đây là thiết bị đầu tiên thuộc dòng Reno được tích hợp NPU MariSilicon X, được xem là NPU cao cấp nhất đến từ OPPO (2022) có khả năng xử lý hình ảnh đỉnh cao. ', '1899000'),
 ('SP018', 'Samsung Galaxy Z Fold3 5G', 'samsung-galaxy-z-fold-3-silver-1-600x600.jpg', '6', 'Điện thoại', 'Samsung', 'Sản phẩm sẽ là một “cú hit” của Samsung góp phần mang đến những trải nghiệm mới cho người dùng.', '3199000'),
 ('SP019', ' Samsung Galaxy Z Flip4 5G', '600x600-thumb-qua-dac-biet-600x600.jpg', '5', 'Điện thoại', 'Samsung', 'Samsung Galaxy Z Flip4 5G Đặc Biệt được cho ra mắt coi như lời cảm ơn dành cho người dùng vì đã dành nhiều sự quan tâm đến với các thiết bị di động của hãng,', '23000000'),
-('SP020', 'Vivo X80', 'vivo-x80-xanh-thumb-600x600.jpg', '3', 'Điện thoại', 'ViVo', 'Vivo X80 được xem là thiết bị hướng đến đối tượng người dùng chuyên nhiếp ảnh trên điện thoại, bằng việc hợp tác cùng nhà sản xuất ống kính nổi tiếng mang thương hiệu ZEISS.', '19000000');
+('SP020', 'Vivo X80', 'vivo-x80-xanh-thumb-600x600.jpg', '3', 'Điện thoại', 'ViVo', 'Vivo X80 được xem là thiết bị hướng đến đối tượng người dùng chuyên nhiếp ảnh trên điện thoại, bằng việc hợp tác cùng nhà sản xuất ống kính nổi tiếng mang thương hiệu ZEISS.', '19000000'),
+('SP021', 'iPhone 13 Pro Max', 'iphone13-pro-max.jfif', '10', 'Điện thoại', 'Iphone', 'iPhone 13 sở hữu hệ thống camera kép xuất sắc nhất từ trước đến nay, bộ vi xử lý Apple A15 nhanh nhất thế giới smartphone cùng thời lượng pin cực khủng, sẵn sàng đồng hành cùng bạn suốt cả ngày.', '19500000'),
+('SP022', 'iPhone 12', 'iphone-12-blue-select-2020_cae77d30ac99435880af61542f7b1efd.webp', '5', 'Điện thoại', 'Iphone', 'iPhone 12 ra mắt với vai trò mở ra một kỷ nguyên hoàn toàn mới. Tốc độ mạng 5G siêu tốc, bộ vi xử lý A14 Bionic nhanh nhất thế giới smartphone, màn hình OLED tràn cạnh tuyệt đẹp và camera siêu chụp đêm, tất cả đều có mặt trên iPhone 12.\r\n\r\n', '16500000');
 
 -- --------------------------------------------------------
 
@@ -214,22 +221,27 @@ CREATE TABLE `thong_tin_chi_tiet` (
 --
 
 INSERT INTO `thong_tin_chi_tiet` (`id`, `ma_san_pham`, `cau_hinh`, `cam_truoc`, `cam_sau`, `ram`, `dung_luong`, `giam_gia`) VALUES
-(4, 'SP001', 'OLED6.1', '12 MP', '2 camera 12 MP', 'Apple A15 Bionic', '128 GB ', 'không'),
+(4, 'SP001', 'OLED6.1', '12 MP', '2 camera 12 MP', 'Apple A15 Bionic', '128 GB ', '0'),
 (5, 'SP002', 'OLED6.1\"Super Retina XDR', '12 MP', '2 camera 12 MP', 'Apple A14 Bionic', '256 GB', '500000'),
-(6, 'SP003', 'HDR10 +, Dolby Vision, Độ sáng tối đa: 1500nit, Corning Gorilla Glass Victus', '32 MP', ' 50 MP, f/1.9, Dual Pixel PDAF, OIS Camera tele: 50 MP, f/1.9, PDAF,', 'Qualcomm SM8450 Snap', '256  GB', 'không'),
-(7, 'SP004', 'Dynamic AMOLED 2X6.8\"Quad HD+ (2K+)', '40 MP', 'Chính 108 MP & Phụ 12 MP, 10 MP, 10 MP', 'Snapdragon 8 Gen 1', '256  GB', 'không'),
+(6, 'SP003', 'HDR10 +, Dolby Vision, Độ sáng tối đa: 1500nit, Corning Gorilla Glass Victus', '32 MP', ' 50 MP, f/1.9, Dual Pixel PDAF, OIS Camera tele: 50 MP, f/1.9, PDAF,', 'Qualcomm SM8450 Snap', '256  GB', '0'),
+(7, 'SP004', 'Dynamic AMOLED 2X6.8', '40 MP', 'Chính 108 MP & Phụ 12 MP, 10 MP, 10 MP', 'Snapdragon 8 Gen 1', '256  GB', '0'),
 (9, 'SP010', 'AMOLED6.43\"Full HD+', '32 MP', 'Chính 64 MP & Phụ 2 MP, 2 MP', 'Snapdragon 680', '128  GB', '3000000'),
-(10, 'SP005', 'Dynamic AMOLED 2X6.8', '40 MP', 'Chính 108 MP & Phụ 12 MP, 10 MP, 10 MP', 'Exynos 2100', '128 GB', 'không'),
-(11, 'SP011', 'IPS LCD6.1\"Liquid Retina', '12 MP', '2 camera 12 MP', 'Apple A13 Bionic', '64 GB', 'không'),
+(10, 'SP005', 'Dynamic AMOLED 2X6.8', '40 MP', 'Chính 108 MP & Phụ 12 MP, 10 MP, 10 MP', 'Exynos 2100', '128 GB', '0'),
+(11, 'SP011', 'IPS LCD6.1', '12 MP', '2 camera 12 MP', 'Apple A13 Bionic', '64 GB', '0'),
 (12, 'SP012', 'IPS LCD6.52\"HD+', '5 MP', 'Chính 8MP & Phụ QVGA', 'MediaTek MT6761 (Hel', '32  GB', '500000'),
 (13, 'SP013', 'Super AMOLED6.5\"Full HD+', '32 MP', 'Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP', 'Exynos 1280', '128 GB', '500000'),
-(14, 'SP014', 'PLS TFT LCD6.6\"Full HD+', '8 MP', 'Chính 50 MP & Phụ 5 MP, 2 MP, 2 M', 'Snapdragon 680', '128  GB', 'không'),
-(15, 'SP016', 'AMOLED 6.44\" Full HD+', '50 MP', 'Chính 64 MP & Phụ 8 MP, 2 MP', 'MediaTek Dimensity 9', '128 GB', 'không'),
-(16, 'SP020', 'AMOLED6.78\"Full HD+', '32 MP', 'Chính 50 MP & Phụ 12 MP, 12 MP', 'MediaTek Dimensity 9', '256 GB', 'không'),
-(17, 'SP019', 'Chính: Dynamic AMOLED 2X, Phụ: Super AMOLEDChính 6.7\" & Phụ 1.9\"Full HD+', '10 MP', '2 camera 12 MP', 'Snapdragon 8+ Gen 1', '256 GB', 'không'),
-(18, 'SP018', 'Dynamic AMOLED 2XChính 7.6\" & Phụ 6.2\"Full HD+', '10 MP & 4 MP', '3 camera 12 MP', 'Snapdragon 888', '256 GB', 'không'),
-(19, 'SP017', 'AMOLED 6.7\" Full HD+', '32 MP', 'Chính 50 MP & Phụ 8 MP, 2 MP', 'MediaTek Dimensity 8', '256 GB', 'không'),
-(20, 'SP007', 'TFT LCD6.51\"HD+', '8 MP', 'Chính 50 MP & Phụ 2 MP', 'Unisoc T606', '32 GB', '1000000');
+(14, 'SP014', 'PLS TFT LCD6.6', '8 MP', 'Chính 50 MP & Phụ 5 MP, 2 MP, 2 M', 'Snapdragon 680', '128  GB', '0'),
+(15, 'SP016', 'AMOLED 6.44', '50 MP', 'Chính 64 MP & Phụ 8 MP, 2 MP', 'MediaTek Dimensity 9', '128 GB', '0'),
+(16, 'SP020', 'AMOLED6.78', '32 MP', 'Chính 50 MP & Phụ 12 MP, 12 MP', 'MediaTek Dimensity 9', '256 GB', '0'),
+(17, 'SP019', 'Chính: Dynamic AMOLED 2X, Phụ: Super AMOLEDChính 6.7', '10 MP', '2 camera 12 MP', 'Snapdragon 8+ Gen 1', '256 GB', '0'),
+(18, 'SP018', 'Dynamic AMOLED 2XChính 7.6', '10 MP & 4 MP', '3 camera 12 MP', 'Snapdragon 888', '256 GB', '0'),
+(19, 'SP017', 'AMOLED 6.7', '32 MP', 'Chính 50 MP & Phụ 8 MP, 2 MP', 'MediaTek Dimensity 8', '256 GB', '0'),
+(20, 'SP007', 'TFT LCD6.51\"HD+', '8 MP', 'Chính 50 MP & Phụ 2 MP', 'Unisoc T606', '32 GB', '1000000'),
+(21, 'SP006', ' 6.43 inch, AMOLED, FHD+, 1080 x 2400 Pixels', '13.0 MP', '50.0 MP + 8.0 MP + 2.0 MP + 2.0 MP', 'Snapdragon 680', '64 GB', '0'),
+(22, 'SP009', '6.43 inch, AMOLED, FHD+, 1080 x 2400 Pixels', '16.0 MP', '8.0 MP + 2.0 MP + 2.0 MP', 'Helio P95', '128 GB', '500000'),
+(23, 'SP008', '6.52 inch, IPS LCD, HD+, 720 x 1600 Pixels', '5.0 MP', '13.0 MP + 2.0 MP', 'Spreadtrum SC9863A', '32 GB', '500000'),
+(24, 'SP021', '6.1 inch, OLED, Super Retina XDR, 2532 x 1170 Pixels', '12.0 MP', '12.0 MP + 12.0 MP', 'Apple A15 Bionic', '128 GB', '1000000'),
+(25, 'SP022', '6.1 inch, OLED, Super Retina XDR, 2532 x 1170 Pixels', '12.0 MP', '12.0 MP + 12.0 MP', 'Apple A14 Bionic', '128 GB', '0');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -257,7 +269,9 @@ ALTER TABLE `bang_hieu`
 -- Chỉ mục cho bảng `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ma_san_pham` (`ma_san_pham`),
+  ADD KEY `username` (`username`);
 
 --
 -- Chỉ mục cho bảng `hoa_don`
@@ -314,11 +328,18 @@ ALTER TABLE `gio_hang`
 -- AUTO_INCREMENT cho bảng `thong_tin_chi_tiet`
 --
 ALTER TABLE `thong_tin_chi_tiet`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `gio_hang`
+--
+ALTER TABLE `gio_hang`
+  ADD CONSTRAINT `gio_hang_ibfk_1` FOREIGN KEY (`ma_san_pham`) REFERENCES `san_pham` (`ma_san_pham`),
+  ADD CONSTRAINT `gio_hang_ibfk_2` FOREIGN KEY (`username`) REFERENCES `accounts` (`username`);
 
 --
 -- Các ràng buộc cho bảng `hoa_don`
