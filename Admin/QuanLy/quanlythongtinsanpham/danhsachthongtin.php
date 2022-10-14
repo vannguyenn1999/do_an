@@ -91,12 +91,13 @@ if(isset($_SESSION['delete'])){
 					<?php
 					require_once "../../Connection.php";
 
-					$sql = "select * from thong_tin_chi_tiet";
+					$sql = "SELECT san_pham.ten_san_pham , thong_tin_chi_tiet.* FROM san_pham INNER JOIN thong_tin_chi_tiet ON san_pham.ma_san_pham = thong_tin_chi_tiet.ma_san_pham
+					";
 					$result = $conn->query($sql);
 					while ($r = $result->fetch_assoc()) {
 					?>
 						<tr>
-							<td><?php echo $r['ma_san_pham'] ?></td>
+							<td><?php echo $r['ten_san_pham'] ?></td>
 							<td><?php echo $r['cau_hinh'] ?></td>
 							<td><?php echo $r['cam_truoc'] ?></td>
 							<td><?php echo $r['cam_sau'] ?></td>
