@@ -19,7 +19,13 @@ if(isset($_SESSION['delete_hang'])){
 	echo "<script type='text/javascript'>alert('$message');</script>";
 	unset($_SESSION['delete_hang']);
 }
+if(isset($_SESSION['err_id'])){
+	$message = $_SESSION['err_id'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	unset($_SESSION['err_id']);
+}
 ?>
+
 
 <!doctype html>
 <html lang="en">

@@ -5,7 +5,15 @@ if(!isset($_SESSION['admin_login'])){
   header("Location: ../../../Admin_Login.php");
 }
 require_once "../../Connection.php";
-$ma_san_pham = $_GET["ma_san_pham"];
+
+if(!isset($_GET['ma_san_pham'])){
+    $_SESSION['err_id'] = "Mã Sản Phẩm Không Hợp Lệ";
+    header('Location: danhsachsanpham.php');
+    exit();
+}else {
+	$ma_san_pham = $_GET["ma_san_pham"];
+}
+
 $update_sql = "select * from san_pham where ma_san_pham = '$ma_san_pham'";
 
 $result = mysqli_query($conn, $update_sql);

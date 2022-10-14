@@ -50,9 +50,7 @@ if(!isset($_SESSION['admin_login'])){
             } else {
                 require_once "../../Connection.php";
                 // Dùng câu lênh like trong sql và sứ dụng toán tử % của php để tìm kiếm dữ liệu chính xác hơn.
-                // $sql = "select * from thon_tin_chi_tiet where ma_san_pham like '%$search%'";
                 $sql =  "SELECT san_pham.ten_san_pham , thong_tin_chi_tiet.* FROM san_pham INNER JOIN thong_tin_chi_tiet ON san_pham.ma_san_pham = thong_tin_chi_tiet.ma_san_pham WHERE san_pham.ten_san_pham LIKE '%$search%'";
-              
 
                 // Thực thi câu truy vấn
                 $result = mysqli_query($conn, $sql);

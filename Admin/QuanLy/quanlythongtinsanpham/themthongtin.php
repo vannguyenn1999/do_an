@@ -127,7 +127,7 @@ if (isset($_POST['submit'])) {
 						<select name="masp" id="" class="form-group">
 							
 							<?php
-							$select = "select * from san_pham";
+							$select = "select ten_san_pham,ma_san_pham from san_pham";
 							$result = mysqli_query($conn, $select);
 							while ($row1 = mysqli_fetch_array($result)) :;
 							?>

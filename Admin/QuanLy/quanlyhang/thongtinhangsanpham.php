@@ -5,7 +5,15 @@ if(!isset($_SESSION['admin_login'])){
   $_SESSION['error'] = 'Bạn chưa đăng nhập, xin vui lòng đăng nhập';
   header("Location: ../../../Admin_Login.php");
 }
-$ten_nhan_hieu = $_GET["ten_nhan_hieu"];
+
+if(!isset($_GET['ten_nhan_hieu'])){
+  $_SESSION['err_id'] = "Tên Nhãn Hiệu Không Hợp Lệ";
+  header('Location: danhsachhangsanpham.php');
+  exit();
+}else {
+  $ten_nhan_hieu = $_GET["ten_nhan_hieu"];
+}
+
 $update_sql = "select * from san_pham where ten_nhan_hieu = '$ten_nhan_hieu'";
 
 $result = mysqli_query($conn, $update_sql);

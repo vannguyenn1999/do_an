@@ -20,6 +20,11 @@ if(isset($_SESSION['delete_sp'])){
 	echo "<script type='text/javascript'>alert('$message');</script>";
 	unset($_SESSION['delete_sp']);
 }
+if(isset($_SESSION['err_id'])){
+	$message = $_SESSION['err_id'];
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	unset($_SESSION['err_id']);
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -81,9 +86,10 @@ if(isset($_SESSION['delete_sp'])){
 						<TH>ẢNH</TH>
 						<th>GIÁ</th>
 						<TH>SỐ LƯỢNG</TH>
-						<TH>LOẠI SẢN PHẨM</TH>
+						<!-- <TH>LOẠI SẢN PHẨM</TH> -->
 						<TH>HÃNG</TH>
 						<TH>THÔNG TIN SẢN PHẨM</TH>
+						<TH>NGÀY TẠO</TH>
 						<TH colspan="2">THAO TÁC</TH>
 					</tr>
 				</thead>
@@ -91,7 +97,7 @@ if(isset($_SESSION['delete_sp'])){
 					<?php
 					require_once "../../Connection.php";
 
-					$sql = "select * from san_pham";
+					$sql = "select * from san_pham ORDER BY ngay_tao DESC";
 					// $sql =  "SELECT * FROM san_pham WHERE ma_san_pham BETWEEN 'SP001' AND 'SP005'";
 					$result = $conn->query($sql);
 					while ($r = $result->fetch_assoc()) {
@@ -102,11 +108,11 @@ if(isset($_SESSION['delete_sp'])){
 							<td ><?php echo "<img src='photo/".$r['anh']."'  width='150' height='150'>" ?></td>
 							<td><?php echo $r['gia'] ?></td>
 							<td><?php echo $r['so_luong'] ?></td>
-
-							<td><?php echo $r['id_kieu'] ?></td>
+							<!-- <td><?php echo $r['id_kieu'] ?></td> -->
 							<td><?php echo $r['ten_nhan_hieu'] ?></td>
 							<!-- <td><img src="image/<?php $r['picture'] ?>" alt="" width="60" height="60"></td> -->
 							<td><?php echo $r['thong_tin'] ?></td>
+							<td><?php echo $r['ngay_tao'] ?></td>
 							<td><a href="thongtinsanpham.php?ma_san_pham=<?php echo $r['ma_san_pham']?>" class="btn btn-info"> Sửa</a></td>
 							<td><a onclick="return confirm('bạn có muốn xoá sản phẩm này không ??')" href="xoasanpham.php?id=<?php echo $r['ma_san_pham'] ?>" class="btn btn-danger"> <i class="fa fa-trash"></i></a></td>
 						</tr>
